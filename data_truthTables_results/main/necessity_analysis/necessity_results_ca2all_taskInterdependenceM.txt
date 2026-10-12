@@ -1,0 +1,125 @@
+To cite this package in publications, please use:
+
+  Dușa, Adrian (2019) QCA with R. A Comprehensive Resource.
+  Springer International Publishing.
+
+> sample0_fsQCA_task_interdependenceM_necessity <- read.csv("/path/to/data_truthTables_results/main/
+  necessity_analysis/
+  sample0_fsQCA_task_interdependenceM_necessity.csv", fileEncoding =
+  "UTF-8-BOM")
+
+> pof("~dpi1 <- s1", data =
+  sample0_fsQCA_task_interdependenceM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~dpi1  0.709  0.750  0.698 
+----------------------------- 
+
+
+> pof("dsi1 <- s1", data = sample0_fsQCA_task_interdependenceM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  dsi1  0.711  0.705  0.663 
+---------------------------- 
+
+
+> pof("~tpi1 <- s1", data =
+  sample0_fsQCA_task_interdependenceM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~tpi1  0.716  0.736  0.690 
+----------------------------- 
+
+
+> pof("tsi1 <- s1", data = sample0_fsQCA_task_interdependenceM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  tsi1  0.734  0.728  0.693 
+---------------------------- 
+
+
+> pof("~dpi1 <- n1", data =
+  sample0_fsQCA_task_interdependenceM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~dpi1  0.729  0.706  0.622 
+----------------------------- 
+
+
+> pof("dsi1 <- n1", data = sample0_fsQCA_task_interdependenceM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  dsi1  0.746  0.670  0.604 
+---------------------------- 
+
+
+> pof("~tpi1 <- n1", data =
+  sample0_fsQCA_task_interdependenceM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~tpi1  0.742  0.695  0.621 
+----------------------------- 
+
+
+> pof("tsi1 <- n1", data = sample0_fsQCA_task_interdependenceM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  tsi1  0.757  0.684  0.619 
+---------------------------- 
+
+
+> pof("~dpi1 <- q1", data =
+  sample0_fsQCA_task_interdependenceM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~dpi1  0.808  0.712  0.633 
+----------------------------- 
+
+
+> pof("dsi1 <- q1", data = sample0_fsQCA_task_interdependenceM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  dsi1  0.759  0.648  0.563 
+---------------------------- 
+
+
+> pof("~tpi1 <- q1", data =
+  sample0_fsQCA_task_interdependenceM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~tpi1  0.805  0.693  0.618 
+----------------------------- 
+
+
+> pof("tsi1 <- q1", data = sample0_fsQCA_task_interdependenceM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  tsi1  0.796  0.672  0.597 
+---------------------------- 
+
+
+>	

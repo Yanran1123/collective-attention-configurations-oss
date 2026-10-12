@@ -1,0 +1,21 @@
+	(1)	(2)	(3)	(4)	(5)	(6)	(7)	(8)	(9)	(10)	(11)	(12)
+VARIABLES	Membership to high speed	Membership to high speed	Membership to high speed	Membership to high speed	Membership to high speed	Membership to high speed	Membership to high speed	Membership to high speed	Membership to high novelty	Membership to high novelty	Membership to high quality	Membership to high quality
+												
+HS_DaysM_ideal	0.54***											
+	(0.019)											
+HS1_DaysM			-0.53***									
+			(0.019)									
+HS2_DaysM					-0.52***							
+					(0.020)							
+HS3_DaysM							-0.56***					
+							(0.020)					
+HN1_DaysM									-0.57***			
+									(0.025)			
+HQ1_DaysM											-0.54***	
+											(0.023)	
+Constant	0.96***	0.29***	1.02***	0.30***	1.01***	0.30***	1.05***	0.30***	0.99***	0.43***	1.03***	0.32***
+	(0.022)	(0.006)	(0.025)	(0.006)	(0.026)	(0.006)	(0.025)	(0.006)	(0.035)	(0.010)	(0.036)	(0.008)
+												
+Observations	2,104	2,104	2,104	2,104	2,104	2,104	2,104	2,104	2,104	2,104	2,104	2,104
+Robust standard errors in parentheses												
+*** p<0.01, ** p<0.05, * p<0.1												

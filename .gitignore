@@ -1,0 +1,17 @@
+# Python caches
+__pycache__/
+*.py[cod]
+
+# OS / editor files
+.DS_Store
+.idea/
+.ipynb_checkpoints/
+.Rhistory
+~$*
+
+# Credentials: never commit tokens or local environment files
+.env
+*.env
+
+# Not part of the public package
+references/

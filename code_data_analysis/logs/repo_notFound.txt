@@ -1,0 +1,57 @@
+[
+{
+    "owner": "archaea-solutions",
+    "name": "design.archaea.in",
+    "nameWithOwner": "archaea-solutions/design.archaea.in"
+},
+{
+    "owner": "mhernan88",
+    "name": "fo_detect",
+    "nameWithOwner": "mhernan88/fo_detect"
+},
+{
+    "owner": "Clarifai",
+    "name": "clarifai-apple-sdk",
+    "nameWithOwner": "Clarifai/clarifai-apple-sdk"
+},
+{
+    "owner": "onepanelio",
+    "name": "automl",
+    "nameWithOwner": "onepanelio/automl"
+},
+{
+    "owner": "productml",
+    "name": "blurr",
+    "nameWithOwner": "productml/blurr"
+},
+{
+    "owner": "mubaidr",
+    "name": "image-parsing",
+    "nameWithOwner": "mubaidr/image-parsing"
+},
+{
+    "owner": "golf-sierra",
+    "name": "fair-heads-or-tails",
+    "nameWithOwner": "golf-sierra/fair-heads-or-tails"
+},
+{
+    "owner": "JiashuWu",
+    "name": "INFO3406-Github-Work-Station",
+    "nameWithOwner": "JiashuWu/INFO3406-Github-Work-Station"
+},
+{
+    "owner": "opentensor",
+    "name": "neuro",
+    "nameWithOwner": "opentensor/neuro"
+},
+{
+    "owner": "quantum9Innovation",
+    "name": "Neural-Network-Frameworks",
+    "nameWithOwner": "quantum9Innovation/Neural-Network-Frameworks"
+},
+{
+    "owner": "chunjie-sam-liu",
+    "name": "jrocker",
+    "nameWithOwner": "chunjie-sam-liu/jrocker"
+}
+]

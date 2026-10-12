@@ -1,0 +1,21 @@
+	(1)	(2)	(3)	(4)	(5)	(6)	(7)	(8)	(9)	(10)	(11)	(12)
+VARIABLES	Membership to high novelty	Membership to high novelty	Membership to high novelty	Membership to high novelty	Membership to high novelty	Membership to high novelty	Membership to high novelty	Membership to high novelty	Membership to high novelty	Membership to high novelty	Membership to high quality	Membership to high quality
+												
+HN_Days1_ideal	0.72***											
+	(0.027)											
+HN1_Days1			-0.70***									
+			(0.028)									
+HN2_Days1					-0.77***							
+					(0.029)							
+HN3_Days1							-0.70***					
+							(0.029)					
+HN4_Days1									-0.77***			
+									(0.030)			
+HQ1_Days1											-0.60***	
+											(0.020)	
+Constant	1.02***	0.44***	1.12***	0.46***	1.23***	0.45***	1.13***	0.46***	1.22***	0.45***	1.14***	0.33***
+	(0.026)	(0.014)	(0.031)	(0.014)	(0.033)	(0.013)	(0.031)	(0.014)	(0.033)	(0.014)	(0.031)	(0.010)
+												
+Observations	1,074	1,074	1,074	1,074	1,074	1,074	1,074	1,074	1,074	1,074	1,074	1,074
+Robust standard errors in parentheses												
+*** p<0.01, ** p<0.05, * p<0.1												

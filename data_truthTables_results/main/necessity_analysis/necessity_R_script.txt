@@ -1,0 +1,29 @@
+
+********************************
+> library(QCA)Loading required package: admiscTo cite package QCA in publications, please use:  Dusa, Adrian (2019) QCA with R. A Comprehensive Resource.  Springer International Publishing.To run the graphical user interface, use: runGUI()
+********************************
+
+
+pof("~dpi1 <- s1", data = sample0_fsQCA_daysM_necessity)
+
+pof("dsi1 <- s1", data = sample0_fsQCA_daysM_necessity)
+
+pof("~tpi1 <- s1", data = sample0_fsQCA_daysM_necessity)
+
+pof("tsi1 <- s1", data = sample0_fsQCA_daysM_necessity)
+
+pof("~dpi1 <- n1", data = sample0_fsQCA_daysM_necessity)
+
+pof("dsi1 <- n1", data = sample0_fsQCA_daysM_necessity)
+
+pof("~tpi1 <- n1", data = sample0_fsQCA_daysM_necessity)
+
+pof("tsi1 <- n1", data = sample0_fsQCA_daysM_necessity)
+
+pof("~dpi1 <- q1", data = sample0_fsQCA_daysM_necessity)
+
+pof("dsi1 <- q1", data = sample0_fsQCA_daysM_necessity)
+
+pof("~tpi1 <- q1", data = sample0_fsQCA_daysM_necessity)
+
+pof("tsi1 <- q1", data = sample0_fsQCA_daysM_necessity)

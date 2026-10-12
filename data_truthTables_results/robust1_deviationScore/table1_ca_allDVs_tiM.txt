@@ -1,0 +1,15 @@
+	(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	Membership to high speed	Membership to high speed	Membership to high novelty	Membership to high novelty	Membership to high quality	Membership to high quality
+						
+HS1_tiM	-0.39***					
+	(0.020)					
+HN1_tiM			-0.45***			
+			(0.025)			
+HQ1_tiM					-0.46***	
+					(0.019)	
+Constant	0.94***	0.35***	0.87***	0.41***	0.90***	0.31***
+	(0.029)	(0.006)	(0.037)	(0.009)	(0.029)	(0.006)
+						
+Observations	2,145	2,145	2,145	2,145	2,145	2,145
+Robust standard errors in parentheses						
+*** p<0.01, ** p<0.05, * p<0.1						

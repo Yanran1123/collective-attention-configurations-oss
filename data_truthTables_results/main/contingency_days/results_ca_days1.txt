@@ -1,0 +1,42 @@
+**********************
+*TRUTH TABLE ANALYSIS*
+**********************
+
+File:  /path/to/data_truthTables_results/main/contingency_days/sample0_fsQCA_days1.csv
+Model: n1 = f(dpi1, dsi1, tpi1, tsi1)
+Algorithm: Quine-McCluskey
+
+--- COMPLEX SOLUTION ---
+frequency cutoff: 13
+consistency cutoff: 0.815338
+                        raw       unique              
+                      coverage    coverage   consistency 
+                     ----------  ----------  ----------  
+~dpi1*dsi1*~tpi1     0.50326     0.0844595   0.871514 
+~dpi1*dsi1*tsi1      0.450591    0.0317914   0.898127
+~dpi1*~tpi1*tsi1     0.484816    0.0660155   0.867115 
+dsi1*~tpi1*tsi1      0.468072    0.049271    0.894605    
+solution coverage: 0.650339
+solution consistency: 0.830823
+
+
+
+
+**********************
+*TRUTH TABLE ANALYSIS*
+**********************
+
+File:  /path/to/data_truthTables_results/main/contingency_days/sample0_fsQCA_days1.csv
+Model: q1 = f(dpi1, dsi1, tpi1, tsi1)
+Algorithm: Quine-McCluskey
+
+--- COMPLEX SOLUTION ---
+frequency cutoff: 13
+consistency cutoff: 0.892494
+                             raw       unique              
+                           coverage    coverage   consistency 
+                          ----------  ----------  ----------  
+~dpi1*dsi1*~tpi1*tsi1     0.470294    0.470294    0.892494    
+solution coverage: 0.470294
+solution consistency: 0.892494
+

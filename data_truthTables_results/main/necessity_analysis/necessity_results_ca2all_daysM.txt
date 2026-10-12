@@ -1,0 +1,118 @@
+> library(QCA)
+To cite this package in publications, please use:
+
+  Dușa, Adrian (2019) QCA with R. A Comprehensive Resource.
+  Springer International Publishing.
+
+> sample0_fsQCA_daysM_necessity <- read.csv("/path/to/data_truthTables_results/main/necessity_analysis/
+  sample0_fsQCA_daysM_necessity.csv", fileEncoding = "UTF-8-BOM")
+
+> pof("~dpi1 <- s1", data = sample0_fsQCA_daysM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~dpi1  0.773  0.802  0.772 
+----------------------------- 
+
+
+> pof("dsi1 <- s1", data = sample0_fsQCA_daysM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  dsi1  0.740  0.755  0.718 
+---------------------------- 
+
+
+> pof("~tpi1 <- s1", data = sample0_fsQCA_daysM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~tpi1  0.779  0.777  0.752 
+----------------------------- 
+
+
+> pof("tsi1 <- s1", data = sample0_fsQCA_daysM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  tsi1  0.738  0.754  0.716 
+---------------------------- 
+
+
+> pof("~dpi1 <- n1", data = sample0_fsQCA_daysM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~dpi1  0.749  0.725  0.648 
+----------------------------- 
+
+
+> pof("dsi1 <- n1", data = sample0_fsQCA_daysM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  dsi1  0.764  0.709  0.642 
+---------------------------- 
+
+
+> pof("~tpi1 <- n1", data = sample0_fsQCA_daysM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~tpi1  0.767  0.707  0.642 
+----------------------------- 
+
+
+> pof("tsi1 <- n1", data = sample0_fsQCA_daysM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  tsi1  0.744  0.699  0.626 
+---------------------------- 
+
+
+> pof("~dpi1 <- q1", data = sample0_fsQCA_daysM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~dpi1  0.816  0.747  0.685 
+----------------------------- 
+
+
+> pof("dsi1 <- q1", data = sample0_fsQCA_daysM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  dsi1  0.768  0.700  0.626 
+---------------------------- 
+
+
+> pof("~tpi1 <- q1", data = sample0_fsQCA_daysM_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~tpi1  0.822  0.721  0.667 
+----------------------------- 
+
+
+> pof("tsi1 <- q1", data = sample0_fsQCA_daysM_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  tsi1  0.762  0.697  0.622 
+---------------------------- 
+
+
+>

@@ -1,0 +1,25 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Yanran Liu and Arun Rai
+
+The data and documentation in this repository are licensed under the Creative
+Commons Attribution 4.0 International License. This covers:
+
+  - data_OSS.csv and data_OSS_variables.xlsx
+  - data_truthTables_results/
+  - README.md files and data_collection_landscape.png
+
+You are free to share (copy and redistribute the material in any medium or
+format) and adapt (remix, transform, and build upon the material) for any
+purpose, even commercially, as long as you give appropriate credit, provide a
+link to the license, and indicate if changes were made.
+
+Please give credit by citing:
+  Yanran Liu and Arun Rai. Collective Attention Configurations in Open-Source
+  Software Development: Interlacing for High Performance. MIS Quarterly,
+  forthcoming.
+
+The data were derived from public GitHub data collected through the GitHub API.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary: https://creativecommons.org/licenses/by/4.0/

@@ -1,0 +1,114 @@
+
+
+> sample0_fsQCA_days1_necessity <- read.csv("/path/to/data_truthTables_results/main/necessity_analysis/
+  sample0_fsQCA_days1_necessity.csv", fileEncoding = "UTF-8-BOM")
+
+> pof("~dpi1 <- s1", data = sample0_fsQCA_days1_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~dpi1  0.886  0.586  0.354 
+----------------------------- 
+
+
+> pof("dsi1 <- s1", data = sample0_fsQCA_days1_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  dsi1  0.835  0.611  0.352 
+---------------------------- 
+
+
+> pof("~tpi1 <- s1", data = sample0_fsQCA_days1_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~tpi1  0.881  0.594  0.356 
+----------------------------- 
+
+
+> pof("tsi1 <- s1", data = sample0_fsQCA_days1_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  tsi1  0.820  0.650  0.371 
+---------------------------- 
+
+
+> pof("~dpi1 <- n1", data = sample0_fsQCA_days1_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~dpi1  0.746  0.760  0.710 
+----------------------------- 
+
+
+> pof("dsi1 <- n1", data = sample0_fsQCA_days1_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  dsi1  0.702  0.775  0.704 
+---------------------------- 
+
+
+> pof("~tpi1 <- n1", data = sample0_fsQCA_days1_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~tpi1  0.748  0.771  0.721 
+----------------------------- 
+
+
+> pof("tsi1 <- n1", data = sample0_fsQCA_days1_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  tsi1  0.678  0.813  0.731 
+---------------------------- 
+
+
+> pof("~dpi1 <- q1", data = sample0_fsQCA_days1_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~dpi1  0.821  0.742  0.682 
+----------------------------- 
+
+
+> pof("dsi1 <- q1", data = sample0_fsQCA_days1_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  dsi1  0.714  0.731  0.625 
+---------------------------- 
+
+
+> pof("~tpi1 <- q1", data = sample0_fsQCA_days1_necessity)
+
+
+          inclN   RoN   covN  
+----------------------------- 
+1  ~tpi1  0.805  0.744  0.677 
+----------------------------- 
+
+
+> pof("tsi1 <- q1", data = sample0_fsQCA_days1_necessity)
+
+
+         inclN   RoN   covN  
+---------------------------- 
+1  tsi1  0.716  0.782  0.673 
+---------------------------- 
+
+
+>	

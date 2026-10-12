@@ -1,0 +1,19 @@
+	(1)	(2)	(3)	(4)	(5)	(6)	(7)	(8)	(9)	(10)
+VARIABLES	Membership to high quality	Membership to high quality	Membership to high quality	Membership to high quality	Membership to high quality	Membership to high quality	Membership to high quality	Membership to high quality	Membership to high quality	Membership to high quality
+										
+HQ_ti0_ideal	0.81***									
+	(0.030)									
+HQ1_ti0			-0.83***							
+			(0.036)							
+HQ2_ti0					-0.78***					
+					(0.036)					
+HQ3_ti0							-0.70***			
+							(0.034)			
+HQ4_ti0									-0.66***	
+									(0.031)	
+Constant	1.13***	0.33***	1.29***	0.34***	1.26***	0.35***	1.24***	0.37***	1.22***	0.36***
+	(0.031)	(0.015)	(0.038)	(0.013)	(0.038)	(0.013)	(0.041)	(0.016)	(0.037)	(0.014)
+										
+Observations	1,073	1,073	1,073	1,073	1,073	1,073	1,073	1,073	1,073	1,073
+Robust standard errors in parentheses										
+*** p<0.01, ** p<0.05, * p<0.1										

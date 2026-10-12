@@ -1,0 +1,125 @@
+**********************
+*TRUTH TABLE ANALYSIS*
+**********************
+
+File:  /path/to/data_truthTables_results/main/sample0_fsQCA.csv
+Model: s1 = f(dpi1, dsi1, tpi1, tsi1)
+Algorithm: Quine-McCluskey
+
+--- COMPLEX SOLUTION ---
+frequency cutoff: 45
+consistency cutoff: 0.859347
+                             raw       unique              
+                           coverage    coverage   consistency 
+                          ----------  ----------  ----------  
+~dpi1*dsi1*~tpi1*tsi1     0.426593    0.426593    0.859347    
+solution coverage: 0.426593
+solution consistency: 0.859347
+
+
+
+**********************
+*TRUTH TABLE ANALYSIS*
+**********************
+
+File:  /path/to/data_truthTables_results/main/sample0_fsQCA.csv
+Model: n1 = f(dpi1, dsi1, tpi1, tsi1)
+Algorithm: Quine-McCluskey
+
+--- COMPLEX SOLUTION ---
+frequency cutoff: 45
+consistency cutoff: 0.827528
+                             raw       unique              
+                           coverage    coverage   consistency 
+                          ----------  ----------  ----------  
+~dpi1*dsi1*~tpi1*tsi1     0.465744    0.465744    0.827528    
+solution coverage: 0.465744
+solution consistency: 0.827528
+
+
+
+**********************
+*TRUTH TABLE ANALYSIS*
+**********************
+
+File:  /path/to/data_truthTables_results/main/sample0_fsQCA.csv
+Model: q1 = f(dpi1, dsi1, tpi1, tsi1)
+Algorithm: Quine-McCluskey
+
+--- COMPLEX SOLUTION ---
+frequency cutoff: 45
+consistency cutoff: 0.858397
+                             raw       unique              
+                           coverage    coverage   consistency 
+                          ----------  ----------  ----------  
+~dpi1*dsi1*~tpi1*tsi1     0.510347    0.510347    0.858397    
+solution coverage: 0.510347
+solution consistency: 0.858397
+
+
+
+**********************
+*TRUTH TABLE ANALYSIS*
+**********************
+
+File:  /path/to/data_truthTables_results/main/sample0_fsQCA.csv
+Model: s0 = f(dpi1, dsi1, tpi1, tsi1)
+Algorithm: Quine-McCluskey
+
+--- COMPLEX SOLUTION ---
+frequency cutoff: 45
+consistency cutoff: 0.842001
+                        raw       unique              
+                      coverage    coverage   consistency 
+                     ----------  ----------  ----------  
+dpi1*~dsi1*~tsi1     0.400949    0.0368279   0.863162    
+~dsi1*tpi1*~tsi1     0.399087    0.0349659   0.858049    
+solution coverage: 0.435915
+solution consistency: 0.847807
+
+
+
+
+**********************
+*TRUTH TABLE ANALYSIS*
+**********************
+
+File:  /path/to/data_truthTables_results/main/sample0_fsQCA.csv
+Model: n0 = f(dpi1, dsi1, tpi1, tsi1)
+Algorithm: Quine-McCluskey
+
+--- COMPLEX SOLUTION ---
+frequency cutoff: 45
+consistency cutoff: 0.841024
+                        raw       unique              
+                      coverage    coverage   consistency 
+                     ----------  ----------  ----------  
+~dsi1*tpi1*~tsi1     0.374959    0.0351821   0.8963      
+dpi1*tpi1*~tsi1      0.435945    0.0961666   0.880742  
+dpi1*~dsi1*~tsi1     0.375323    0.0355465   0.898324    
+dpi1*~dsi1*tpi1      0.423867    0.0840888   0.886355    
+solution coverage: 0.590761
+solution consistency: 0.85829
+
+
+
+**********************
+*TRUTH TABLE ANALYSIS*
+**********************
+
+File:  /path/to/data_truthTables_results/main/sample0_fsQCA.csv
+Model: q0 = f(dpi1, dsi1, tpi1, tsi1)
+Algorithm: Quine-McCluskey
+
+--- COMPLEX SOLUTION ---
+frequency cutoff: 45
+consistency cutoff: 0.854758
+                        raw       unique              
+                      coverage    coverage   consistency 
+                     ----------  ----------  ----------  
+dpi1*~tsi1           0.504748    0.124757    0.918532    
+dpi1*~dsi1           0.480178    0.100186    0.923551    
+~dsi1*tpi1*~tsi1     0.377847    0.0349088   0.939418    
+solution coverage: 0.639842
+solution consistency: 0.900315
+

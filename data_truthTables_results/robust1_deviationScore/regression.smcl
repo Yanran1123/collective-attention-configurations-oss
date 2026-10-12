@@ -1,0 +1,1302 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/path/to/data_truthTables_results/robust1_deviationScore/regression.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Oct 2026, 16:13:06
+{txt}
+{com}. 
+. cls
+{txt}
+{com}. 
+. 
+. //  Results used for ca --> DVs
+. drop _all
+{txt}
+{com}. import delimited "/path/to/data_truthTables_results/robust1_deviationScore/sample0_fsQCA.csv"
+{res}{text}(16 vars, 4,291 obs)
+
+{com}. 
+. gen HS1 = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. gen HN1 = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. gen HQ1 = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. tobit s1 HS1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     4,291
+{txt}{col 49}F({res}   1{txt},{res}   4290{txt}){col 67}= {res}    507.45
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-1595.8015{txt}{col 49}Pseudo R2{col 67}= {res}    0.3806
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,004} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}HS1 {c |}{col 14}{res}{space 2}-.4489186{col 26}{space 2} .0199283{col 37}{space 1}  -22.53{col 46}{space 3}0.000{col 54}{space 4}-.4879884{col 67}{space 3}-.4098488
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.006796{col 26}{space 2} .0305568{col 37}{space 1}   32.95{col 46}{space 3}0.000{col 54}{space 4} .9468891{col 67}{space 3} 1.066703
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3405883{col 26}{space 2} .0056419{col 54}{space 4} .3295273{col 67}{space 3} .3516494
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01144919
+         4,035{txt}     uncensored observations
+{res}           255{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs, ctitle(Membership to high speed) bdec(2) word replace
+{txt}{stata `"shellout using `"table1_ca_allDVs.rtf"'"':table1_ca_allDVs.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs.txt""':seeout}
+
+{com}. tobit n1 HN1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     4,291
+{txt}{col 49}F({res}   1{txt},{res}   4290{txt}){col 67}= {res}    737.41
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res} -2875.521{txt}{col 49}Pseudo R2{col 67}= {res}    0.2425
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,004} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}HN1 {c |}{col 14}{res}{space 2}-.5804765{col 26}{space 2} .0213761{col 37}{space 1}  -27.16{col 46}{space 3}0.000{col 54}{space 4}-.6223847{col 67}{space 3}-.5385682
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.003559{col 26}{space 2} .0323594{col 37}{space 1}   31.01{col 46}{space 3}0.000{col 54}{space 4} .9401182{col 67}{space 3} 1.067001
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2}  .441601{col 26}{space 2}  .009292{col 54}{space 4}  .423384{col 67}{space 3} .4598181
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}         1,273{txt}  left-censored observations at n1 <= {res}.04742587
+         2,739{txt}     uncensored observations
+{res}           279{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs.rtf"'"':table1_ca_allDVs.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs.txt""':seeout}
+
+{com}. tobit q1 HQ1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     4,291
+{txt}{col 49}F({res}   1{txt},{res}   4290{txt}){col 67}= {res}    835.54
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-1459.3559{txt}{col 49}Pseudo R2{col 67}= {res}    0.4996
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,004} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}HQ1 {c |}{col 14}{res}{space 2}-.5450044{col 26}{space 2} .0188546{col 37}{space 1}  -28.91{col 46}{space 3}0.000{col 54}{space 4}-.5819691{col 67}{space 3}-.5080396
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.032017{col 26}{space 2} .0304628{col 37}{space 1}   33.88{col 46}{space 3}0.000{col 54}{space 4} .9722944{col 67}{space 3}  1.09174
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3179098{col 26}{space 2} .0067212{col 54}{space 4} .3047328{col 67}{space 3} .3310869
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           122{txt}  left-censored observations at q1 <= {res}.01798621
+         3,812{txt}     uncensored observations
+{res}           357{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs.rtf"'"':table1_ca_allDVs.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs.txt""':seeout}
+
+{com}. 
+. 
+. // ti0: Results for low task interdependence
+. drop _all
+{txt}
+{com}. import delimited "/path/to/data_truthTables_results/robust1_deviationScore/sample0_fsQCA_task_interdependence0.csv"
+{res}{text}(15 vars, 1,073 obs)
+
+{com}. 
+. gen HS1_ti0 = sqrt((tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HS2_ti0 = sqrt((dpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HS3_ti0 = sqrt((1-dsi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HS4_ti0 = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2)
+{txt}
+{com}. gen HS_ti0_ideal = - min(HS1_ti0, HS2_ti0, HS3_ti0, HS4_ti0)
+{txt}
+{com}. 
+. gen HN1_ti0 = sqrt((tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HN2_ti0 = sqrt((dpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HN3_ti0 = sqrt((1-dsi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HN4_ti0 = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2)
+{txt}
+{com}. gen HN_ti0_ideal = - min(HN1_ti0, HN2_ti0, HN3_ti0, HN4_ti0)
+{txt}
+{com}. 
+. gen HQ1_ti0 = sqrt((tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HQ2_ti0 = sqrt((dpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HQ3_ti0 = sqrt((1-dsi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HQ4_ti0 = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2)
+{txt}
+{com}. gen HQ_ti0_ideal = - min(HQ1_ti0, HQ2_ti0, HQ3_ti0, HQ4_ti0)
+{txt}
+{com}. 
+. tobit s1 HS_ti0_ideal, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    227.59
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-495.87627{txt}{col 49}Pseudo R2{col 67}= {res}    0.3363
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+HS_ti0_ideal {c |}{col 14}{res}{space 2} .6019756{col 26}{space 2} .0399025{col 37}{space 1}   15.09{col 46}{space 3}0.000{col 54}{space 4} .5236799{col 67}{space 3} .6802714
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9885459{col 26}{space 2} .0397321{col 37}{space 1}   24.88{col 46}{space 3}0.000{col 54}{space 4} .9105843{col 67}{space 3} 1.066508
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2}  .358591{col 26}{space 2} .0129599{col 54}{space 4} .3331614{col 67}{space 3} .3840207
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01188454
+           885{txt}     uncensored observations
+{res}           187{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_s1_ti0, ctitle(Membership to high speed) bdec(2) word replace
+{txt}{stata `"shellout using `"table1_ca_s1_ti0.rtf"'"':table1_ca_s1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_s1_ti0.txt""':seeout}
+
+{com}. tobit s1 HS1_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    178.24
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}  -510.271{txt}{col 49}Pseudo R2{col 67}= {res}    0.3171
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HS1_ti0 {c |}{col 14}{res}{space 2}-.6008388{col 26}{space 2}  .045004{col 37}{space 1}  -13.35{col 46}{space 3}0.000{col 54}{space 4}-.6891448{col 67}{space 3}-.5125328
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.087115{col 26}{space 2} .0476562{col 37}{space 1}   22.81{col 46}{space 3}0.000{col 54}{space 4}  .993605{col 67}{space 3} 1.180625
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3688706{col 26}{space 2} .0109003{col 54}{space 4} .3474822{col 67}{space 3} .3902589
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01188454
+           885{txt}     uncensored observations
+{res}           187{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_s1_ti0, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_s1_ti0.rtf"'"':table1_ca_s1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_s1_ti0.txt""':seeout}
+
+{com}. tobit s1 HS2_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    164.39
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-520.17306{txt}{col 49}Pseudo R2{col 67}= {res}    0.3038
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HS2_ti0 {c |}{col 14}{res}{space 2}-.5606072{col 26}{space 2}  .043724{col 37}{space 1}  -12.82{col 46}{space 3}0.000{col 54}{space 4}-.6464017{col 67}{space 3}-.4748128
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.066173{col 26}{space 2} .0474053{col 37}{space 1}   22.49{col 46}{space 3}0.000{col 54}{space 4} .9731554{col 67}{space 3} 1.159191
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3721005{col 26}{space 2} .0111822{col 54}{space 4} .3501591{col 67}{space 3} .3940419
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01188454
+           885{txt}     uncensored observations
+{res}           187{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_s1_ti0, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_s1_ti0.rtf"'"':table1_ca_s1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_s1_ti0.txt""':seeout}
+
+{com}. tobit s1 HS3_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    186.55
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-531.47052{txt}{col 49}Pseudo R2{col 67}= {res}    0.2887
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HS3_ti0 {c |}{col 14}{res}{space 2}-.5313678{col 26}{space 2} .0389047{col 37}{space 1}  -13.66{col 46}{space 3}0.000{col 54}{space 4}-.6077059{col 67}{space 3}-.4550298
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.065432{col 26}{space 2} .0446794{col 37}{space 1}   23.85{col 46}{space 3}0.000{col 54}{space 4} .9777631{col 67}{space 3} 1.153101
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3728587{col 26}{space 2} .0147789{col 54}{space 4} .3438598{col 67}{space 3} .4018575
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01188454
+           885{txt}     uncensored observations
+{res}           187{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_s1_ti0, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_s1_ti0.rtf"'"':table1_ca_s1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_s1_ti0.txt""':seeout}
+
+{com}. tobit s1 HS4_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    145.54
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-538.44523{txt}{col 49}Pseudo R2{col 67}= {res}    0.2793
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HS4_ti0 {c |}{col 14}{res}{space 2}-.4773197{col 26}{space 2} .0395653{col 37}{space 1}  -12.06{col 46}{space 3}0.000{col 54}{space 4} -.554954{col 67}{space 3}-.3996854
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.041922{col 26}{space 2} .0463709{col 37}{space 1}   22.47{col 46}{space 3}0.000{col 54}{space 4} .9509342{col 67}{space 3}  1.13291
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3779319{col 26}{space 2} .0130765{col 54}{space 4} .3522735{col 67}{space 3} .4035903
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01188454
+           885{txt}     uncensored observations
+{res}           187{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_s1_ti0, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_s1_ti0.rtf"'"':table1_ca_s1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_s1_ti0.txt""':seeout}
+
+{com}. 
+. 
+. tobit n1 HN_ti0_ideal, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    403.38
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-728.19692{txt}{col 49}Pseudo R2{col 67}= {res}    0.2877
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+HN_ti0_ideal {c |}{col 14}{res}{space 2} .8536118{col 26}{space 2} .0425016{col 37}{space 1}   20.08{col 46}{space 3}0.000{col 54}{space 4}  .770216{col 67}{space 3} .9370076
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.052373{col 26}{space 2} .0277087{col 37}{space 1}   37.98{col 46}{space 3}0.000{col 54}{space 4} .9980035{col 67}{space 3} 1.106742
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4455875{col 26}{space 2} .0192401{col 54}{space 4} .4078349{col 67}{space 3}   .48334
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           198{txt}  left-censored observations at n1 <= {res}.04742587
+           658{txt}     uncensored observations
+{res}           217{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_n1_ti0, ctitle(Membership to high novelty) bdec(2) word replace
+{txt}{stata `"shellout using `"table1_ca_n1_ti0.rtf"'"':table1_ca_n1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_n1_ti0.txt""':seeout}
+
+{com}. tobit n1 HN1_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    326.13
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-767.93516{txt}{col 49}Pseudo R2{col 67}= {res}    0.2488
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HN1_ti0 {c |}{col 14}{res}{space 2}-.8170854{col 26}{space 2} .0452453{col 37}{space 1}  -18.06{col 46}{space 3}0.000{col 54}{space 4}-.9058648{col 67}{space 3}-.7283061
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.171008{col 26}{space 2} .0335697{col 37}{space 1}   34.88{col 46}{space 3}0.000{col 54}{space 4} 1.105139{col 67}{space 3} 1.236878
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4674675{col 26}{space 2} .0205179{col 54}{space 4} .4272077{col 67}{space 3} .5077273
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           198{txt}  left-censored observations at n1 <= {res}.04742587
+           658{txt}     uncensored observations
+{res}           217{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_n1_ti0, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_n1_ti0.rtf"'"':table1_ca_n1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_n1_ti0.txt""':seeout}
+
+{com}. tobit n1 HN2_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    293.85
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-784.96424{txt}{col 49}Pseudo R2{col 67}= {res}    0.2321
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HN2_ti0 {c |}{col 14}{res}{space 2}-.7550445{col 26}{space 2} .0440461{col 37}{space 1}  -17.14{col 46}{space 3}0.000{col 54}{space 4}-.8414708{col 67}{space 3}-.6686182
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.138181{col 26}{space 2} .0330788{col 37}{space 1}   34.41{col 46}{space 3}0.000{col 54}{space 4} 1.073275{col 67}{space 3} 1.203087
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4754317{col 26}{space 2} .0208182{col 54}{space 4} .4345826{col 67}{space 3} .5162808
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           198{txt}  left-censored observations at n1 <= {res}.04742587
+           658{txt}     uncensored observations
+{res}           217{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_n1_ti0, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_n1_ti0.rtf"'"':table1_ca_n1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_n1_ti0.txt""':seeout}
+
+{com}. tobit n1 HN3_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    344.19
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-755.18526{txt}{col 49}Pseudo R2{col 67}= {res}    0.2613
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HN3_ti0 {c |}{col 14}{res}{space 2}-.7641736{col 26}{space 2} .0411903{col 37}{space 1}  -18.55{col 46}{space 3}0.000{col 54}{space 4}-.8449963{col 67}{space 3}-.6833509
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.173792{col 26}{space 2} .0356733{col 37}{space 1}   32.90{col 46}{space 3}0.000{col 54}{space 4} 1.103794{col 67}{space 3} 1.243789
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4604838{col 26}{space 2} .0191532{col 54}{space 4} .4229019{col 67}{space 3} .4980657
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           198{txt}  left-censored observations at n1 <= {res}.04742587
+           658{txt}     uncensored observations
+{res}           217{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_n1_ti0, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_n1_ti0.rtf"'"':table1_ca_n1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_n1_ti0.txt""':seeout}
+
+{com}. tobit n1 HN4_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    227.74
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-808.24185{txt}{col 49}Pseudo R2{col 67}= {res}    0.2094
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HN4_ti0 {c |}{col 14}{res}{space 2}-.6457914{col 26}{space 2} .0427931{col 37}{space 1}  -15.09{col 46}{space 3}0.000{col 54}{space 4}-.7297592{col 67}{space 3}-.5618236
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.107157{col 26}{space 2} .0373443{col 37}{space 1}   29.65{col 46}{space 3}0.000{col 54}{space 4} 1.033881{col 67}{space 3} 1.180433
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4894339{col 26}{space 2} .0198701{col 54}{space 4} .4504452{col 67}{space 3} .5284226
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           198{txt}  left-censored observations at n1 <= {res}.04742587
+           658{txt}     uncensored observations
+{res}           217{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_n1_ti0, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_n1_ti0.rtf"'"':table1_ca_n1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_n1_ti0.txt""':seeout}
+
+{com}.         
+. 
+. tobit q1 HQ_ti0_ideal, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    735.28
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-437.08663{txt}{col 49}Pseudo R2{col 67}= {res}    0.4953
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+HQ_ti0_ideal {c |}{col 14}{res}{space 2} .8052402{col 26}{space 2}  .029696{col 37}{space 1}   27.12{col 46}{space 3}0.000{col 54}{space 4} .7469713{col 67}{space 3}  .863509
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.132314{col 26}{space 2} .0311253{col 37}{space 1}   36.38{col 46}{space 3}0.000{col 54}{space 4}  1.07124{col 67}{space 3} 1.193387
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3279252{col 26}{space 2} .0145094{col 54}{space 4} .2994551{col 67}{space 3} .3563953
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            15{txt}  left-censored observations at q1 <= {res}.01798621
+           763{txt}     uncensored observations
+{res}           295{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_q1_ti0, ctitle(Membership to high quality) bdec(2) word replace
+{txt}{stata `"shellout using `"table1_ca_q1_ti0.rtf"'"':table1_ca_q1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_q1_ti0.txt""':seeout}
+
+{com}. tobit q1 HQ1_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    521.03
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-444.16574{txt}{col 49}Pseudo R2{col 67}= {res}    0.4871
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HQ1_ti0 {c |}{col 14}{res}{space 2}-.8297079{col 26}{space 2} .0363492{col 37}{space 1}  -22.83{col 46}{space 3}0.000{col 54}{space 4}-.9010315{col 67}{space 3}-.7583842
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.285019{col 26}{space 2} .0379956{col 37}{space 1}   33.82{col 46}{space 3}0.000{col 54}{space 4} 1.210465{col 67}{space 3} 1.359574
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3381983{col 26}{space 2} .0130146{col 54}{space 4} .3126613{col 67}{space 3} .3637352
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            15{txt}  left-censored observations at q1 <= {res}.01798621
+           763{txt}     uncensored observations
+{res}           295{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_q1_ti0, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_q1_ti0.rtf"'"':table1_ca_q1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_q1_ti0.txt""':seeout}
+
+{com}. tobit q1 HQ2_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    462.57
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-466.19572{txt}{col 49}Pseudo R2{col 67}= {res}    0.4617
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HQ2_ti0 {c |}{col 14}{res}{space 2}-.7761119{col 26}{space 2} .0360856{col 37}{space 1}  -21.51{col 46}{space 3}0.000{col 54}{space 4}-.8469183{col 67}{space 3}-.7053055
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.258913{col 26}{space 2} .0381766{col 37}{space 1}   32.98{col 46}{space 3}0.000{col 54}{space 4} 1.184004{col 67}{space 3} 1.333822
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2}  .347287{col 26}{space 2} .0129922{col 54}{space 4}  .321794{col 67}{space 3} .3727799
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            15{txt}  left-censored observations at q1 <= {res}.01798621
+           763{txt}     uncensored observations
+{res}           295{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_q1_ti0, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_q1_ti0.rtf"'"':table1_ca_q1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_q1_ti0.txt""':seeout}
+
+{com}. tobit q1 HQ3_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    434.37
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-540.37651{txt}{col 49}Pseudo R2{col 67}= {res}    0.3760
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HQ3_ti0 {c |}{col 14}{res}{space 2}-.7017433{col 26}{space 2} .0336706{col 37}{space 1}  -20.84{col 46}{space 3}0.000{col 54}{space 4} -.767811{col 67}{space 3}-.6356756
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.235924{col 26}{space 2} .0410117{col 37}{space 1}   30.14{col 46}{space 3}0.000{col 54}{space 4} 1.155452{col 67}{space 3} 1.316396
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3706276{col 26}{space 2} .0159949{col 54}{space 4} .3392428{col 67}{space 3} .4020124
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            15{txt}  left-censored observations at q1 <= {res}.01798621
+           763{txt}     uncensored observations
+{res}           295{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_q1_ti0, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_q1_ti0.rtf"'"':table1_ca_q1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_q1_ti0.txt""':seeout}
+
+{com}. tobit q1 HQ4_ti0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,073
+{txt}{col 49}F({res}   1{txt},{res}   1072{txt}){col 67}= {res}    438.06
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-514.94743{txt}{col 49}Pseudo R2{col 67}= {res}    0.4054
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:426} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HQ4_ti0 {c |}{col 14}{res}{space 2}-.6554064{col 26}{space 2} .0313142{col 37}{space 1}  -20.93{col 46}{space 3}0.000{col 54}{space 4}-.7168505{col 67}{space 3}-.5939622
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.221421{col 26}{space 2} .0373163{col 37}{space 1}   32.73{col 46}{space 3}0.000{col 54}{space 4}   1.1482{col 67}{space 3} 1.294642
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2}  .364241{col 26}{space 2} .0138178{col 54}{space 4}  .337128{col 67}{space 3} .3913539
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            15{txt}  left-censored observations at q1 <= {res}.01798621
+           763{txt}     uncensored observations
+{res}           295{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_q1_ti0, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_q1_ti0.rtf"'"':table1_ca_q1_ti0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_q1_ti0.txt""':seeout}
+
+{com}. 
+. 
+. // tiM: Results for low task interdependence
+. drop _all
+{txt}
+{com}. import delimited "/path/to/data_truthTables_results/robust1_deviationScore/sample0_fsQCA_task_interdependenceM.csv"
+{res}{text}(15 vars, 2,145 obs)
+
+{com}. 
+. gen HS1_tiM = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. gen HN1_tiM = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. gen HQ1_tiM = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. tobit s1 HS1_tiM, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     2,145
+{txt}{col 49}F({res}   1{txt},{res}   2144{txt}){col 67}= {res}    357.96
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-814.66194{txt}{col 49}Pseudo R2{col 67}= {res}    0.3038
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:705} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HS1_tiM {c |}{col 14}{res}{space 2}-.3875091{col 26}{space 2} .0204816{col 37}{space 1}  -18.92{col 46}{space 3}0.000{col 54}{space 4}-.4276749{col 67}{space 3}-.3473432
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9386782{col 26}{space 2} .0288091{col 37}{space 1}   32.58{col 46}{space 3}0.000{col 54}{space 4} .8821815{col 67}{space 3} .9951749
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3478732{col 26}{space 2} .0055148{col 54}{space 4} .3370584{col 67}{space 3} .3586881
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01144919
+         2,076{txt}     uncensored observations
+{res}            68{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_tiM, ctitle(Membership to high speed) bdec(2) word replace
+{txt}{stata `"shellout using `"table1_ca_allDVs_tiM.rtf"'"':table1_ca_allDVs_tiM.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_tiM.txt""':seeout}
+
+{com}. tobit n1 HN1_tiM, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     2,145
+{txt}{col 49}F({res}   1{txt},{res}   2144{txt}){col 67}= {res}    314.43
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-1343.5182{txt}{col 49}Pseudo R2{col 67}= {res}    0.1947
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:705} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HN1_tiM {c |}{col 14}{res}{space 2}-.4485519{col 26}{space 2} .0252961{col 37}{space 1}  -17.73{col 46}{space 3}0.000{col 54}{space 4}-.4981594{col 67}{space 3}-.3989444
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .8685257{col 26}{space 2} .0370143{col 37}{space 1}   23.46{col 46}{space 3}0.000{col 54}{space 4}  .795938{col 67}{space 3} .9411134
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4132609{col 26}{space 2} .0092788{col 54}{space 4} .3950645{col 67}{space 3} .4314572
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           510{txt}  left-censored observations at n1 <= {res}.04742587
+         1,577{txt}     uncensored observations
+{res}            58{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_tiM, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_tiM.rtf"'"':table1_ca_allDVs_tiM.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_tiM.txt""':seeout}
+
+{com}. tobit q1 HQ1_tiM, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     2,145
+{txt}{col 49}F({res}   1{txt},{res}   2144{txt}){col 67}= {res}    567.74
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-620.99151{txt}{col 49}Pseudo R2{col 67}= {res}    0.4739
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:705} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}HQ1_tiM {c |}{col 14}{res}{space 2}-.4598662{col 26}{space 2} .0192999{col 37}{space 1}  -23.83{col 46}{space 3}0.000{col 54}{space 4}-.4977148{col 67}{space 3}-.4220177
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9042457{col 26}{space 2} .0287119{col 37}{space 1}   31.49{col 46}{space 3}0.000{col 54}{space 4} .8479397{col 67}{space 3} .9605517
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3125137{col 26}{space 2} .0062081{col 54}{space 4} .3003391{col 67}{space 3} .3246883
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            42{txt}  left-censored observations at q1 <= {res}.01798621
+         2,042{txt}     uncensored observations
+{res}            61{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_tiM, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_tiM.rtf"'"':table1_ca_allDVs_tiM.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_tiM.txt""':seeout}
+
+{com}.         
+.         
+. // Org1
+. 
+. drop _all
+{txt}
+{com}. import delimited "/path/to/data_truthTables_results/robust1_deviationScore/sample0_fsQCA_org1.csv"
+{res}{text}(15 vars, 3,479 obs)
+
+{com}. 
+. gen HS1_Org1 = sqrt((1-(1-dpi1))^2 + (1-dsi1)^2 + (1-(1-tpi1))^2)
+{txt}
+{com}. gen HS2_Org1 = sqrt((1-(1-dpi1))^2 + (1-(1-tpi1))^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HS_Org1_ideal = - min(HS1_Org1, HS2_Org1)
+{txt}
+{com}. 
+. gen HN1_Org1 = sqrt((1-(1-dpi1))^2 + (1-dsi1)^2 + (1-(1-tpi1))^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. gen HQ1_Org1 = sqrt((1-(1-dpi1))^2 + (1-dsi1)^2 + (1-(1-tpi1))^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. 
+. tobit s1 HS_Org1_ideal, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     3,479
+{txt}{col 49}F({res}   1{txt},{res}   3478{txt}){col 67}= {res}    351.34
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-1398.4999{txt}{col 49}Pseudo R2{col 67}= {res}    0.3377
+
+{txt}{ralign 79:(Std. Err. adjusted for {res:686} clusters in repository)}
+{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 15}{c |}{col 27}    Robust
+{col 1}           s1{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      t{col 47}   P>|t|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+HS_Org1_ideal {c |}{col 15}{res}{space 2}  .455663{col 27}{space 2} .0243098{col 38}{space 1}   18.74{col 47}{space 3}0.000{col 55}{space 4} .4080002{col 68}{space 3} .5033259
+{txt}{space 8}_cons {c |}{col 15}{res}{space 2} .9268069{col 27}{space 2} .0286782{col 38}{space 1}   32.32{col 47}{space 3}0.000{col 55}{space 4} .8705791{col 68}{space 3} .9830347
+{txt}{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /sigma {c |}{col 15}{res}{space 2} .3492712{col 27}{space 2} .0060723{col 55}{space 4} .3373655{col 68}{space 3} .3611769
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01158265
+         3,224{txt}     uncensored observations
+{res}           254{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_org1, ctitle(Membership to high speed) bdec(2) word replace
+{txt}{stata `"shellout using `"table1_ca_allDVs_org1.rtf"'"':table1_ca_allDVs_org1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_org1.txt""':seeout}
+
+{com}. tobit s1 HS1_Org1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     3,479
+{txt}{col 49}F({res}   1{txt},{res}   3478{txt}){col 67}= {res}    344.60
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-1418.1161{txt}{col 49}Pseudo R2{col 67}= {res}    0.3284
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:686} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}HS1_Org1 {c |}{col 14}{res}{space 2}-.4579837{col 26}{space 2} .0246714{col 37}{space 1}  -18.56{col 46}{space 3}0.000{col 54}{space 4}-.5063556{col 67}{space 3}-.4096119
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .968091{col 26}{space 2} .0303589{col 37}{space 1}   31.89{col 46}{space 3}0.000{col 54}{space 4}  .908568{col 67}{space 3} 1.027614
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3515157{col 26}{space 2} .0063732{col 54}{space 4} .3390202{col 67}{space 3} .3640112
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01158265
+         3,224{txt}     uncensored observations
+{res}           254{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_org1, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_org1.rtf"'"':table1_ca_allDVs_org1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_org1.txt""':seeout}
+
+{com}. tobit s1 HS2_Org1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     3,479
+{txt}{col 49}F({res}   1{txt},{res}   3478{txt}){col 67}= {res}    345.61
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-1419.4567{txt}{col 49}Pseudo R2{col 67}= {res}    0.3278
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:686} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}HS2_Org1 {c |}{col 14}{res}{space 2}-.4493864{col 26}{space 2} .0241729{col 37}{space 1}  -18.59{col 46}{space 3}0.000{col 54}{space 4}-.4967809{col 67}{space 3}-.4019919
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .958447{col 26}{space 2}  .030629{col 37}{space 1}   31.29{col 46}{space 3}0.000{col 54}{space 4} .8983944{col 67}{space 3}   1.0185
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3517604{col 26}{space 2} .0059842{col 54}{space 4} .3400275{col 67}{space 3} .3634932
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01158265
+         3,224{txt}     uncensored observations
+{res}           254{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_org1, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_org1.rtf"'"':table1_ca_allDVs_org1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_org1.txt""':seeout}
+
+{com}. 
+. tobit n1 HN1_Org1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     3,479
+{txt}{col 49}F({res}   1{txt},{res}   3478{txt}){col 67}= {res}    618.94
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-2348.0206{txt}{col 49}Pseudo R2{col 67}= {res}    0.2439
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:686} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}HN1_Org1 {c |}{col 14}{res}{space 2}-.5837474{col 26}{space 2} .0234639{col 37}{space 1}  -24.88{col 46}{space 3}0.000{col 54}{space 4}-.6297517{col 67}{space 3}-.5377431
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.001566{col 26}{space 2}  .033822{col 37}{space 1}   29.61{col 46}{space 3}0.000{col 54}{space 4} .9352527{col 67}{space 3} 1.067878
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4418633{col 26}{space 2} .0104468{col 54}{space 4} .4213809{col 67}{space 3} .4623457
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           937{txt}  left-censored observations at n1 <= {res}.04742587
+         2,277{txt}     uncensored observations
+{res}           265{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_org1, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_org1.rtf"'"':table1_ca_allDVs_org1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_org1.txt""':seeout}
+
+{com}.         
+. tobit q1 HQ1_Org1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     3,479
+{txt}{col 49}F({res}   1{txt},{res}   3478{txt}){col 67}= {res}    757.92
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-1296.4384{txt}{col 49}Pseudo R2{col 67}= {res}    0.4731
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:686} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}HQ1_Org1 {c |}{col 14}{res}{space 2}-.5559767{col 26}{space 2} .0201951{col 37}{space 1}  -27.53{col 46}{space 3}0.000{col 54}{space 4}-.5955721{col 67}{space 3}-.5163813
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.048291{col 26}{space 2} .0319471{col 37}{space 1}   32.81{col 46}{space 3}0.000{col 54}{space 4}  .985654{col 67}{space 3} 1.110928
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3280807{col 26}{space 2} .0072042{col 54}{space 4} .3139557{col 67}{space 3} .3422056
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            81{txt}  left-censored observations at q1 <= {res}.01798621
+         3,051{txt}     uncensored observations
+{res}           347{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_org1, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_org1.rtf"'"':table1_ca_allDVs_org1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_org1.txt""':seeout}
+
+{com}. 
+. 
+. 
+. // Days1
+. drop _all
+{txt}
+{com}. import delimited "/path/to/data_truthTables_results/robust1_deviationScore/sample0_fsQCA_days1.csv"
+{res}{text}(15 vars, 1,074 obs)
+
+{com}. 
+. gen HN1_Days1 = sqrt((1-(1-dpi1))^2 + (1-dsi1)^2 + (1-(1-tpi1))^2)
+{txt}
+{com}. gen HN2_Days1 = sqrt((1-(1-dpi1))^2 + (1-dsi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HN3_Days1 = sqrt((1-(1-dpi1))^2 + (1-(1-tpi1))^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HN4_Days1 = sqrt((1-dsi1)^2 + (1-(1-tpi1))^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HN_Days1_ideal = - min(HN1_Days1, HN2_Days1, HN3_Days1, HN4_Days1)
+{txt}
+{com}. 
+. gen HQ1_Days1 = sqrt((1-(1-dpi1))^2 + (1-dsi1)^2 + (1-(1-tpi1))^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. tobit n1 HN_Days1_ideal, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,074
+{txt}{col 49}F({res}   1{txt},{res}   1073{txt}){col 67}= {res}    695.17
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-719.82736{txt}{col 49}Pseudo R2{col 67}= {res}    0.2895
+
+{txt}{ralign 80:(Std. Err. adjusted for {res:685} clusters in repository)}
+{hline 15}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 16}{c |}{col 28}    Robust
+{col 1}            n1{col 16}{c |}      Coef.{col 28}   Std. Err.{col 40}      t{col 48}   P>|t|{col 56}     [95% Con{col 69}f. Interval]
+{hline 15}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+HN_Days1_ideal {c |}{col 16}{res}{space 2} .7182019{col 28}{space 2} .0272397{col 39}{space 1}   26.37{col 48}{space 3}0.000{col 56}{space 4} .6647527{col 69}{space 3}  .771651
+{txt}{space 9}_cons {c |}{col 16}{res}{space 2} 1.024863{col 28}{space 2}  .025965{col 39}{space 1}   39.47{col 48}{space 3}0.000{col 56}{space 4} .9739147{col 69}{space 3}  1.07581
+{txt}{hline 15}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+        /sigma {c |}{col 16}{res}{space 2} .4414589{col 28}{space 2} .0141718{col 56}{space 4} .4136514{col 69}{space 3} .4692664
+{txt}{hline 15}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           279{txt}  left-censored observations at n1 <= {res}.04742587
+           668{txt}     uncensored observations
+{res}           127{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days1, ctitle(Membership to high novelty) bdec(2) word replace
+{txt}{stata `"shellout using `"table1_ca_allDVs_days1.rtf"'"':table1_ca_allDVs_days1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days1.txt""':seeout}
+
+{com}. tobit n1 HN1_Days1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,074
+{txt}{col 49}F({res}   1{txt},{res}   1073{txt}){col 67}= {res}    620.18
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-758.14084{txt}{col 49}Pseudo R2{col 67}= {res}    0.2517
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:685} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HN1_Days1 {c |}{col 14}{res}{space 2}-.7009341{col 26}{space 2} .0281461{col 37}{space 1}  -24.90{col 46}{space 3}0.000{col 54}{space 4}-.7561617{col 67}{space 3}-.6457065
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.118324{col 26}{space 2} .0305892{col 37}{space 1}   36.56{col 46}{space 3}0.000{col 54}{space 4} 1.058302{col 67}{space 3} 1.178345
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4598633{col 26}{space 2} .0143594{col 54}{space 4} .4316876{col 67}{space 3} .4880391
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           279{txt}  left-censored observations at n1 <= {res}.04742587
+           668{txt}     uncensored observations
+{res}           127{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days1, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days1.rtf"'"':table1_ca_allDVs_days1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days1.txt""':seeout}
+
+{com}. tobit n1 HN2_Days1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,074
+{txt}{col 49}F({res}   1{txt},{res}   1073{txt}){col 67}= {res}    695.32
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-726.94291{txt}{col 49}Pseudo R2{col 67}= {res}    0.2825
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:685} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HN2_Days1 {c |}{col 14}{res}{space 2}-.7749461{col 26}{space 2} .0293886{col 37}{space 1}  -26.37{col 46}{space 3}0.000{col 54}{space 4}-.8326117{col 67}{space 3}-.7172806
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.225442{col 26}{space 2} .0328128{col 37}{space 1}   37.35{col 46}{space 3}0.000{col 54}{space 4} 1.161057{col 67}{space 3} 1.289826
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4453301{col 26}{space 2} .0134501{col 54}{space 4} .4189386{col 67}{space 3} .4717216
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           279{txt}  left-censored observations at n1 <= {res}.04742587
+           668{txt}     uncensored observations
+{res}           127{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days1, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days1.rtf"'"':table1_ca_allDVs_days1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days1.txt""':seeout}
+
+{com}. tobit n1 HN3_Days1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,074
+{txt}{col 49}F({res}   1{txt},{res}   1073{txt}){col 67}= {res}    599.47
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-756.56451{txt}{col 49}Pseudo R2{col 67}= {res}    0.2532
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:685} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HN3_Days1 {c |}{col 14}{res}{space 2}-.6998231{col 26}{space 2} .0285829{col 37}{space 1}  -24.48{col 46}{space 3}0.000{col 54}{space 4}-.7559078{col 67}{space 3}-.6437384
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.126644{col 26}{space 2} .0309935{col 37}{space 1}   36.35{col 46}{space 3}0.000{col 54}{space 4} 1.065829{col 67}{space 3} 1.187458
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2}  .458726{col 26}{space 2} .0140241{col 54}{space 4} .4312082{col 67}{space 3} .4862439
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           279{txt}  left-censored observations at n1 <= {res}.04742587
+           668{txt}     uncensored observations
+{res}           127{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days1, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days1.rtf"'"':table1_ca_allDVs_days1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days1.txt""':seeout}
+
+{com}. tobit n1 HN4_Days1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,074
+{txt}{col 49}F({res}   1{txt},{res}   1073{txt}){col 67}= {res}    640.48
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-728.01408{txt}{col 49}Pseudo R2{col 67}= {res}    0.2814
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:685} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HN4_Days1 {c |}{col 14}{res}{space 2}-.7699979{col 26}{space 2} .0304255{col 37}{space 1}  -25.31{col 46}{space 3}0.000{col 54}{space 4}-.8296982{col 67}{space 3}-.7102977
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.216196{col 26}{space 2} .0327765{col 37}{space 1}   37.11{col 46}{space 3}0.000{col 54}{space 4} 1.151882{col 67}{space 3} 1.280509
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4470807{col 26}{space 2} .0141362{col 54}{space 4}  .419343{col 67}{space 3} .4748183
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           279{txt}  left-censored observations at n1 <= {res}.04742587
+           668{txt}     uncensored observations
+{res}           127{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days1, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days1.rtf"'"':table1_ca_allDVs_days1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days1.txt""':seeout}
+
+{com}. 
+. tobit q1 HQ1_Days1, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,074
+{txt}{col 49}F({res}   1{txt},{res}   1073{txt}){col 67}= {res}    888.16
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-420.61982{txt}{col 49}Pseudo R2{col 67}= {res}    0.4727
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:685} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HQ1_Days1 {c |}{col 14}{res}{space 2}-.5981866{col 26}{space 2}  .020072{col 37}{space 1}  -29.80{col 46}{space 3}0.000{col 54}{space 4}-.6375714{col 67}{space 3}-.5588017
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.140619{col 26}{space 2} .0307577{col 37}{space 1}   37.08{col 46}{space 3}0.000{col 54}{space 4} 1.080267{col 67}{space 3} 1.200971
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3322533{col 26}{space 2} .0097072{col 54}{space 4}  .313206{col 67}{space 3} .3513007
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            31{txt}  left-censored observations at q1 <= {res}.01798621
+           921{txt}     uncensored observations
+{res}           122{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days1, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days1.rtf"'"':table1_ca_allDVs_days1.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days1.txt""':seeout}
+
+{com}. 
+. 
+. // DaysM
+. drop _all
+{txt}
+{com}. import delimited "/path/to/data_truthTables_results/robust1_deviationScore/sample0_fsQCA_daysM.csv"
+{res}{text}(15 vars, 2,104 obs)
+
+{com}. 
+. gen HS1_DaysM = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2)
+{txt}
+{com}. gen HS2_DaysM = sqrt((dpi1)^2 + (tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HS3_DaysM = sqrt((dpi1)^2 + (1-dsi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HS_DaysM_ideal = - min(HS1_DaysM, HS2_DaysM, HS3_DaysM)
+{txt}
+{com}. 
+. gen HN1_DaysM = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. gen HQ1_DaysM = sqrt((dpi1)^2 + (1-dsi1)^2 + (tpi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. tobit s1 HS_DaysM_ideal, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     2,104
+{txt}{col 49}F({res}   1{txt},{res}   2103{txt}){col 67}= {res}    822.64
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-470.61502{txt}{col 49}Pseudo R2{col 67}= {res}    0.6149
+
+{txt}{ralign 80:(Std. Err. adjusted for {res:615} clusters in repository)}
+{hline 15}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 16}{c |}{col 28}    Robust
+{col 1}            s1{col 16}{c |}      Coef.{col 28}   Std. Err.{col 40}      t{col 48}   P>|t|{col 56}     [95% Con{col 69}f. Interval]
+{hline 15}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+HS_DaysM_ideal {c |}{col 16}{res}{space 2} .5438876{col 28}{space 2} .0189629{col 39}{space 1}   28.68{col 48}{space 3}0.000{col 56}{space 4} .5066996{col 69}{space 3} .5810755
+{txt}{space 9}_cons {c |}{col 16}{res}{space 2} .9572815{col 28}{space 2} .0224371{col 39}{space 1}   42.67{col 48}{space 3}0.000{col 56}{space 4} .9132803{col 69}{space 3} 1.001283
+{txt}{hline 15}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+        /sigma {c |}{col 16}{res}{space 2} .2915787{col 28}{space 2} .0064444{col 56}{space 4} .2789406{col 69}{space 3} .3042169
+{txt}{hline 15}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01360786
+         1,977{txt}     uncensored observations
+{res}           126{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_daysM, ctitle(Membership to high speed) bdec(2) word replace
+{txt}{stata `"shellout using `"table1_ca_allDVs_daysM.rtf"'"':table1_ca_allDVs_daysM.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_daysM.txt""':seeout}
+
+{com}. tobit s1 HS1_DaysM, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     2,104
+{txt}{col 49}F({res}   1{txt},{res}   2103{txt}){col 67}= {res}    770.76
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-531.38111{txt}{col 49}Pseudo R2{col 67}= {res}    0.5652
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:615} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HS1_DaysM {c |}{col 14}{res}{space 2}-.5325818{col 26}{space 2} .0191834{col 37}{space 1}  -27.76{col 46}{space 3}0.000{col 54}{space 4}-.5702022{col 67}{space 3}-.4949613
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.019946{col 26}{space 2} .0247671{col 37}{space 1}   41.18{col 46}{space 3}0.000{col 54}{space 4} .9713758{col 67}{space 3} 1.068517
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3013235{col 26}{space 2} .0060102{col 54}{space 4} .2895369{col 67}{space 3} .3131101
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01360786
+         1,977{txt}     uncensored observations
+{res}           126{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_daysM, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_daysM.rtf"'"':table1_ca_allDVs_daysM.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_daysM.txt""':seeout}
+
+{com}. tobit s1 HS2_DaysM, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     2,104
+{txt}{col 49}F({res}   1{txt},{res}   2103{txt}){col 67}= {res}    673.76
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-552.27892{txt}{col 49}Pseudo R2{col 67}= {res}    0.5481
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:615} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HS2_DaysM {c |}{col 14}{res}{space 2}-.5195577{col 26}{space 2} .0200162{col 37}{space 1}  -25.96{col 46}{space 3}0.000{col 54}{space 4}-.5588114{col 67}{space 3} -.480304
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  1.00709{col 26}{space 2} .0259736{col 37}{space 1}   38.77{col 46}{space 3}0.000{col 54}{space 4} .9561539{col 67}{space 3} 1.058027
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3042794{col 26}{space 2} .0063748{col 54}{space 4}  .291778{col 67}{space 3} .3167809
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01360786
+         1,977{txt}     uncensored observations
+{res}           126{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_daysM, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_daysM.rtf"'"':table1_ca_allDVs_daysM.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_daysM.txt""':seeout}
+
+{com}. tobit s1 HS3_DaysM, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     2,104
+{txt}{col 49}F({res}   1{txt},{res}   2103{txt}){col 67}= {res}    799.61
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-530.73993{txt}{col 49}Pseudo R2{col 67}= {res}    0.5657
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:615} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HS3_DaysM {c |}{col 14}{res}{space 2}-.5568937{col 26}{space 2} .0196939{col 37}{space 1}  -28.28{col 46}{space 3}0.000{col 54}{space 4}-.5955152{col 67}{space 3}-.5182721
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.054238{col 26}{space 2} .0252664{col 37}{space 1}   41.72{col 46}{space 3}0.000{col 54}{space 4} 1.004689{col 67}{space 3} 1.103788
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3010592{col 26}{space 2} .0064083{col 54}{space 4} .2884919{col 67}{space 3} .3136265
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             1{txt}  left-censored observation  at s1 <= {res}.01360786
+         1,977{txt}     uncensored observations
+{res}           126{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_daysM, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_daysM.rtf"'"':table1_ca_allDVs_daysM.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_daysM.txt""':seeout}
+
+{com}. 
+. tobit n1 HN1_DaysM, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     2,104
+{txt}{col 49}F({res}   1{txt},{res}   2103{txt}){col 67}= {res}    508.96
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-1378.6307{txt}{col 49}Pseudo R2{col 67}= {res}    0.2530
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:615} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          n1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HN1_DaysM {c |}{col 14}{res}{space 2}-.5688169{col 26}{space 2} .0252132{col 37}{space 1}  -22.56{col 46}{space 3}0.000{col 54}{space 4}-.6182624{col 67}{space 3}-.5193714
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9927687{col 26}{space 2} .0346597{col 37}{space 1}   28.64{col 46}{space 3}0.000{col 54}{space 4} .9247979{col 67}{space 3} 1.060739
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .4337853{col 26}{space 2} .0099369{col 54}{space 4} .4142982{col 67}{space 3} .4532724
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}           588{txt}  left-censored observations at n1 <= {res}.04742587
+         1,390{txt}     uncensored observations
+{res}           126{txt} right-censored observations at n1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_daysM, ctitle(Membership to high novelty) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_daysM.rtf"'"':table1_ca_allDVs_daysM.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_daysM.txt""':seeout}
+
+{com}.         
+. tobit q1 HQ1_DaysM, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     2,104
+{txt}{col 49}F({res}   1{txt},{res}   2103{txt}){col 67}= {res}    536.76
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-724.21959{txt}{col 49}Pseudo R2{col 67}= {res}    0.4970
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:615} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HQ1_DaysM {c |}{col 14}{res}{space 2}-.5401618{col 26}{space 2} .0233148{col 37}{space 1}  -23.17{col 46}{space 3}0.000{col 54}{space 4}-.5858843{col 67}{space 3}-.4944392
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  1.03463{col 26}{space 2} .0360451{col 37}{space 1}   28.70{col 46}{space 3}0.000{col 54}{space 4} .9639424{col 67}{space 3} 1.105318
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3204557{col 26}{space 2} .0081457{col 54}{space 4} .3044811{col 67}{space 3} .3364302
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            50{txt}  left-censored observations at q1 <= {res}.01798621
+         1,868{txt}     uncensored observations
+{res}           186{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_daysM, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_daysM.rtf"'"':table1_ca_allDVs_daysM.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_daysM.txt""':seeout}
+
+{com}. 
+.         
+. // Days0
+. drop _all
+{txt}
+{com}. import delimited "/path/to/data_truthTables_results/robust1_deviationScore/sample0_fsQCA_days0.csv"
+{res}{text}(15 vars, 1,113 obs)
+
+{com}. 
+. gen HS1_Days0 = sqrt((1-(1-dpi1))^2)
+{txt}
+{com}. gen HS2_Days0 = sqrt((1-dsi1)^2 + (1-(1-tpi1))^2)
+{txt}
+{com}. gen HS3_Days0 = sqrt((1-dsi1)^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HS4_Days0 = sqrt((1-(1-tpi1))^2 + (1-tsi1)^2)
+{txt}
+{com}. gen HS_Days0_ideal = - min(HS1_Days0, HS2_Days0, HS3_Days0, HS4_Days0)
+{txt}
+{com}. 
+. gen HQ1_Days0 = sqrt((1-(1-dpi1))^2 + (1-dsi1)^2 + (1-(1-tpi1))^2 + (1-tsi1)^2)
+{txt}
+{com}. 
+. tobit s1 HS_Days0_ideal, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,113
+{txt}{col 49}F({res}   1{txt},{res}   1112{txt}){col 67}= {res}    365.75
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-201.05032{txt}{col 49}Pseudo R2{col 67}= {res}    0.6373
+
+{txt}{ralign 80:(Std. Err. adjusted for {res:355} clusters in repository)}
+{hline 15}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 16}{c |}{col 28}    Robust
+{col 1}            s1{col 16}{c |}      Coef.{col 28}   Std. Err.{col 40}      t{col 48}   P>|t|{col 56}     [95% Con{col 69}f. Interval]
+{hline 15}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+HS_Days0_ideal {c |}{col 16}{res}{space 2} .6606735{col 28}{space 2} .0345459{col 39}{space 1}   19.12{col 48}{space 3}0.000{col 56}{space 4} .5928911{col 69}{space 3} .7284559
+{txt}{space 9}_cons {c |}{col 16}{res}{space 2} .9941822{col 28}{space 2} .0209017{col 39}{space 1}   47.56{col 48}{space 3}0.000{col 56}{space 4}  .953171{col 69}{space 3} 1.035193
+{txt}{hline 15}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+        /sigma {c |}{col 16}{res}{space 2} .2704264{col 28}{space 2} .0082935{col 56}{space 4} .2541538{col 69}{space 3} .2866991
+{txt}{hline 15}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             4{txt}  left-censored observations at s1 <= {res}.02667727
+           990{txt}     uncensored observations
+{res}           119{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days0, ctitle(Membership to high speed) bdec(2) word replace
+{txt}{stata `"shellout using `"table1_ca_allDVs_days0.rtf"'"':table1_ca_allDVs_days0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days0.txt""':seeout}
+
+{com}. tobit s1 HS1_Days0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,113
+{txt}{col 49}F({res}   1{txt},{res}   1112{txt}){col 67}= {res}    209.99
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-303.82701{txt}{col 49}Pseudo R2{col 67}= {res}    0.4519
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:355} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HS1_Days0 {c |}{col 14}{res}{space 2}-.5692495{col 26}{space 2} .0392828{col 37}{space 1}  -14.49{col 46}{space 3}0.000{col 54}{space 4}-.6463263{col 67}{space 3}-.4921727
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.029686{col 26}{space 2} .0270024{col 37}{space 1}   38.13{col 46}{space 3}0.000{col 54}{space 4} .9767042{col 67}{space 3} 1.082667
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3012238{col 26}{space 2}  .008518{col 54}{space 4} .2845106{col 67}{space 3} .3179369
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             4{txt}  left-censored observations at s1 <= {res}.02667727
+           990{txt}     uncensored observations
+{res}           119{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days0, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days0.rtf"'"':table1_ca_allDVs_days0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days0.txt""':seeout}
+
+{com}. tobit s1 HS2_Days0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,113
+{txt}{col 49}F({res}   1{txt},{res}   1112{txt}){col 67}= {res}    254.60
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res} -265.8759{txt}{col 49}Pseudo R2{col 67}= {res}    0.5204
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:355} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HS2_Days0 {c |}{col 14}{res}{space 2}-.5518157{col 26}{space 2} .0345832{col 37}{space 1}  -15.96{col 46}{space 3}0.000{col 54}{space 4}-.6196714{col 67}{space 3}  -.48396
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  1.17131{col 26}{space 2} .0313274{col 37}{space 1}   37.39{col 46}{space 3}0.000{col 54}{space 4} 1.109842{col 67}{space 3} 1.232777
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .2900484{col 26}{space 2}   .00954{col 54}{space 4} .2713301{col 67}{space 3} .3087668
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             4{txt}  left-censored observations at s1 <= {res}.02667727
+           990{txt}     uncensored observations
+{res}           119{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days0, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days0.rtf"'"':table1_ca_allDVs_days0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days0.txt""':seeout}
+
+{com}. tobit s1 HS3_Days0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,113
+{txt}{col 49}F({res}   1{txt},{res}   1112{txt}){col 67}= {res}    239.38
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-335.54021{txt}{col 49}Pseudo R2{col 67}= {res}    0.3947
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:355} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HS3_Days0 {c |}{col 14}{res}{space 2}-.4546152{col 26}{space 2} .0293835{col 37}{space 1}  -15.47{col 46}{space 3}0.000{col 54}{space 4}-.5122687{col 67}{space 3}-.3969618
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.081198{col 26}{space 2} .0300965{col 37}{space 1}   35.92{col 46}{space 3}0.000{col 54}{space 4} 1.022146{col 67}{space 3}  1.14025
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .3069781{col 26}{space 2} .0100383{col 54}{space 4} .2872818{col 67}{space 3} .3266743
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             4{txt}  left-censored observations at s1 <= {res}.02667727
+           990{txt}     uncensored observations
+{res}           119{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days0, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days0.rtf"'"':table1_ca_allDVs_days0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days0.txt""':seeout}
+
+{com}. tobit s1 HS4_Days0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,113
+{txt}{col 49}F({res}   1{txt},{res}   1112{txt}){col 67}= {res}    297.71
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-261.52713{txt}{col 49}Pseudo R2{col 67}= {res}    0.5282
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:355} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          s1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HS4_Days0 {c |}{col 14}{res}{space 2}-.5539281{col 26}{space 2}  .032104{col 37}{space 1}  -17.25{col 46}{space 3}0.000{col 54}{space 4}-.6169194{col 67}{space 3}-.4909368
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.168922{col 26}{space 2} .0314791{col 37}{space 1}   37.13{col 46}{space 3}0.000{col 54}{space 4} 1.107157{col 67}{space 3} 1.230687
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .2901808{col 26}{space 2} .0075027{col 54}{space 4} .2754598{col 67}{space 3} .3049018
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}             4{txt}  left-censored observations at s1 <= {res}.02667727
+           990{txt}     uncensored observations
+{res}           119{txt} right-censored observations at s1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days0, ctitle(Membership to high speed) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days0.rtf"'"':table1_ca_allDVs_days0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days0.txt""':seeout}
+
+{com}.         
+. tobit q1 HQ1_Days0, ll ul vce(cluster repository)
+{res}
+{txt}Tobit regression{col 49}Number of obs{col 67}= {res}     1,113
+{txt}{col 49}F({res}   1{txt},{res}   1112{txt}){col 67}= {res}    213.66
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-268.68149{txt}{col 49}Pseudo R2{col 67}= {res}    0.5754
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:355} clusters in repository)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          q1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}HQ1_Days0 {c |}{col 14}{res}{space 2}-.4974097{col 26}{space 2} .0340295{col 37}{space 1}  -14.62{col 46}{space 3}0.000{col 54}{space 4} -.564179{col 67}{space 3}-.4306404
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9173556{col 26}{space 2} .0580669{col 37}{space 1}   15.80{col 46}{space 3}0.000{col 54}{space 4} .8034225{col 67}{space 3} 1.031289
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .2900229{col 26}{space 2}   .01536{col 54}{space 4} .2598851{col 67}{space 3} .3201607
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}            41{txt}  left-censored observations at q1 <= {res}.01798621
+         1,023{txt}     uncensored observations
+{res}            49{txt} right-censored observations at q1 >= {res}1
+{txt}
+{com}.         outreg2 using table1_ca_allDVs_days0, ctitle(Membership to high quality) bdec(2) word append
+{txt}{stata `"shellout using `"table1_ca_allDVs_days0.rtf"'"':table1_ca_allDVs_days0.rtf}
+{browse `"/path/to/data_truthTables_results/robust1_deviationScore"' :dir}{com} : {txt}{stata `"seeout using "table1_ca_allDVs_days0.txt""':seeout}
+
+{com}. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/path/to/data_truthTables_results/robust1_deviationScore/regression.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Oct 2026, 16:13:09
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
